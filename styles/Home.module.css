@@ -1,0 +1,75 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "navbar"
+    "title"
+    "button";
+  grid-template-columns: 1fr;
+  grid-template-rows: fit-content(100%) 1fr 1fr;
+  width: 100%;
+  height: 100vh;
+}
+
+.title {
+  grid-area: title;
+  align-self: flex-end;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleLetter {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.button {
+  grid-area: button;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.playbutton,
+.howToPlayBtn {
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.playbutton {
+  background-color: var(--correct_color);
+}
+
+.howToPlayBtn {
+  background-color: var(--misplace_color);
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .playbutton,
+  .howToPlayBtn {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .playbutton,
+  .howToPlayBtn {
+    font-size: 2rem;
+  }
+
+  .playbutton:hover {
+    background-color: var(--color_success);
+  }
+
+  .howToPlayBtn:hover {
+    background-color: var(--misplace_hover);
+  }
+}

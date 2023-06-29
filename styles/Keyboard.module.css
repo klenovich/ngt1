@@ -1,0 +1,90 @@
+.container {
+  grid-area: keyboard;
+  display: grid;
+  grid-template-areas:
+    "numbers"
+    "others";
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-self: flex-start;
+  gap: 0.5rem;
+}
+
+.number,
+.other {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 0.3rem;
+  row-gap: 0.3rem;
+}
+
+.number {
+  grid-area: numbers;
+}
+
+.other {
+  grid-area: others;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  min-width: fit-content;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem 0.5rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.default_key {
+  background-color: var(--keyboard_color);
+  border: 1px solid var(--keyboard_color);
+}
+
+.key_correct {
+  background-color: var(--correct_color);
+  border: 1px solid var(--correct_color);
+  color: var(--guessed_word_color);
+}
+
+.key_misplace {
+  background-color: var(--misplace_color);
+  border: 1px solid var(--misplace_color);
+  color: var(--guessed_word_color);
+}
+
+.key_wrong {
+  background-color: var(--wrong_color);
+  border: 1px solid var(--wrong_color);
+  color: var(--guessed_word_color);
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .key {
+    font-size: 1.2rem;
+    padding: 0.7rem;
+  }
+
+  .number,
+  .other {
+    column-gap: 0.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .key {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .number,
+  .other {
+    column-gap: 0.5rem;
+  }
+  .key:hover {
+    box-shadow: 5px 5px 10px black;
+  }
+}
