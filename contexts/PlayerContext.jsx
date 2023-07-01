@@ -7,8 +7,8 @@ const usePlayer = () => {
 };
 
 const PlayerProvider = ({ children }) => {
-  const ROWS_COUNT = 6;
-  const EQUATION_LENGTH = 8;
+  const ROWS_COUNT = 3;
+  const EQUATION_LENGTH = 3;
   const [currentGuess, setCurrentGuess] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [guesses, setGuesses] = useState(Array(ROWS_COUNT).fill(null));
@@ -35,7 +35,7 @@ const PlayerProvider = ({ children }) => {
         return;
       }
 
-      if (
+      /*if (
         !currentGuess.includes("+") &&
         !currentGuess.includes("-") &&
         !currentGuess.includes("*") &&
@@ -43,7 +43,7 @@ const PlayerProvider = ({ children }) => {
       ) {
         setError("The equation needs to include at least one operator.");
         return;
-      }
+      }*/
       if (!currentGuess.includes("=")) {
         setError("The equation needs to include '='.");
         return;
@@ -141,7 +141,7 @@ const PlayerProvider = ({ children }) => {
   const generateEquation = (length) => {
     const equationLength = length;
     const maxOperatorCount = Math.floor(equationLength / 2 - 1);
-    const minOperatorCount = 1;
+    const minOperatorCount = 0;
     const possibleOperators = ["+", "-", "/", "*"];
     const possibleNumbers = "0123456789";
     const operatorsToUse = [];
@@ -179,7 +179,7 @@ const PlayerProvider = ({ children }) => {
       );
     }
 
-    const LHSequationLength = operatorsToUse.length + LHSNumberCount;
+    const LHSequationLength = 1;//operatorsToUse.length + LHSNumberCount;
     const LHSequation = Array(LHSequationLength);
 
     for (let i = 0; i < LHSequationLength; i++) {
@@ -223,6 +223,7 @@ const PlayerProvider = ({ children }) => {
     if (finalEquation.length !== equationLength)
       return generateEquation(length);
 
+    console.log(finalEquation);
     return finalEquation;
   };
 
